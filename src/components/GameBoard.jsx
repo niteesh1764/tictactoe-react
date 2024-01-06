@@ -8,8 +8,7 @@ export default function GameBoard({ onSelectSquare, board }) {
                 <li key={colIndex}>
                   <button
                     onClick={() => onSelectSquare(rowIndex, colIndex)}
-                    disabled={playerSymbol !== null}
-                  >
+                    disabled={playerSymbol !== null}>
                     {playerSymbol}
                   </button>
                 </li>

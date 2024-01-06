@@ -48,12 +48,12 @@ h1 {
 }
 
 #game-container {
-  max-width: 45rem;
+  max-width: 35rem;
   margin: 3rem auto;
   padding: 2rem;
   border-radius: 6px;
   background: linear-gradient(#383624, #282617);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   position: relative;
 }
 
@@ -70,13 +70,14 @@ h1 {
 #players li {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 40%;
   border: 2px solid transparent;
 }
 
 #players.highlight-player li.active {
   border-color: #f6e35a;
   animation: pulse 2s infinite ease-in-out;
+  border-radius : 5px;
 }
 
 #players.highlight-player li.active .player-name,
@@ -105,6 +106,7 @@ h1 {
   padding: 0.5rem;
   border-radius: 4px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .player-name {
@@ -123,7 +125,7 @@ h1 {
 .player input {
   font: inherit;
   font-size: 1rem;
-  width: 10rem;
+  width: 6rem;
   border: none;
   padding: 0.5rem;
   animation: pulse-text 2s infinite;
@@ -179,12 +181,12 @@ ol {
 }
 
 #game-board button {
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   border: none;
   background: #aca788;
   color: #3f3b00;
-  font-size: 5rem;
+  font-size: 4rem;
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
   padding: 1rem;

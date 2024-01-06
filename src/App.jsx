@@ -21,8 +21,8 @@ function deriveActivePlayer(gameTurns){
 
   if(gameTurns.length > 0 && gameTurns[0].player === 'X'){
         currentPlayer = 'O';
-        return currentPlayer;
-  }
+      }
+    return currentPlayer;
 }
 export default function App() {
   const [players, setPlayers] = useState(PLAYERS);
@@ -48,15 +48,17 @@ export default function App() {
     gameBoard[row][col] = player;
   }
   
-  // for (const combinations of WINNING_COMBINATIONS){
-  //   const firstSymbol = gameBoard[combinations[0].row][combinations[0].column];
-  //   const secondSymbol = gameBoard[combinations[1].row][combinations[1].column];
-  //   const thirdSymbol = gameBoard[combinations[2].row][combinations[2].column];
+  for (const combinations of WINNING_COMBINATIONS){
+    const firstSymbol = gameBoard[combinations[0].row][combinations[0].column];
+    const secondSymbol = gameBoard[combinations[1].row][combinations[1].column];
+    const thirdSymbol = gameBoard[combinations[2].row][combinations[2].column];
 
-  //   if (firstSymbol && firstSymbol === secondSymbol && secondSymbol === thirdSymbol){
-  //     winner = players[firstSymbol];
-  //   }
-  // }
+    if (firstSymbol && 
+      firstSymbol === secondSymbol && 
+      firstSymbol === thirdSymbol){
+      winner = players[firstSymbol];
+    }
+  }
 
   function handleSelectSquare(rowIndex, colIndex){
     setGameTurns((prevTurns) => {
@@ -66,9 +68,9 @@ export default function App() {
     });
   }
 
-  // function handleRematch(){
-  //   setGameTurns([]);
-  // }
+  function handleRematch(){
+    setGameTurns([]);
+  }
 
   return (
     <main>
@@ -83,7 +85,7 @@ export default function App() {
           onNameChange = {handleNameChange}
           />
         </ol>
-          {(winner || hasDrawn) && (<GameOver winner = {winner} onRestart = {handleRematch}/>)}
+          {(winner || hasDrawn) && (<GameOver winner={winner} onRestart={handleRematch}/>)}
           <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard}/>     
       </div>
       <Log turns={gameTurns}/>    
